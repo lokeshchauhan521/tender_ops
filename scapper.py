@@ -213,6 +213,63 @@ def save_data_to_csv(scrape_data):
         logger.error(f"failed to save data in csv, error: {str(e)}")
         return False
 
+def download_tender_doc(driver):
+    try:
+        parent_tab = driver.current_window_handle
+        get_document  = f"//*[@id='tenderDetailDivTd']/div/a"
+        doc_url  = driver.find_element(By.XPATH , get_document)
+        link = doc_url.get_attribute("href")
+        if link:
+            driver.execute_script(f"window.open('{link}', '_blank');")
+            logger.info(f"moving to captcha page")
+            try:
+                tabs = driver.window_handles
+                driver.switch_to.window(tabs[-1])
+                time.sleep(5)
+                get_download_link  = f"//*[@id='DirectLink_5']"
+                driver.find_element(By.XPATH , get_download_link).click()
+                # download_link  = get_element.get_attribute("href")
+                # driver.execute_script(f"window.open('{download_link}', '_blank');")
+                # driver.switch_to.window(tabs[])
+                logger.info(f"searching for captcha")
+                with open("output/test.html", "w" , encoding='utf-8') as f:
+                    f.write(driver.page_source)
+                time.sleep(5)
+                try:
+                    # driver.switch_to.window(parent_tab)
+                    cap_image_path = f"//*[@id='captchaImage']"
+                    find_cap_img_path = driver.find_element(By.XPATH , cap_image_path)
+                    if find_cap_img_path:
+                        logger.info(f"Got image path.....{len(tabs)}")
+                        time.sleep(15)
+                        # driver.switch_to.window(tabs[-1])
+                        # driver.close()
+                        try:
+                            final_download_link = f"//*[@id='DirectLink_4']"
+                            final_download_pdf = driver.find_element(By.XPATH , final_download_link)
+                            if final_download_pdf:
+                                logger.error(f"Didn't find any path")
+                                final_download_pdf.click()
+                            time.sleep(10)
+                        except Exception as e:
+                            logger.error(f"Getting error submit button ..{str(e)}")
+            
+                except Exception as e:
+                    logger.error(f"Getting captch path error: {str(e)}")
+                logger.info(f"closing other window.....")
+                parent_tab = driver.current_window_handle
+                driver.switch_to.window(parent_tab)
+                driver.close()
+                time.sleep(30)
+
+            except Exception as e:
+                logger.error(f"Getting error while downloading tender doc..{str(e)}")
+            time.sleep(60)
+        return True
+    except Exception as e:
+        logger.error(f"Error downloading tender document, error: {str(e)}")
+        return False
+
 
 def download_content(col_num=1, driver=None):
     parent_tab = driver.current_window_handle
@@ -229,6 +286,8 @@ def download_content(col_num=1, driver=None):
             status, scrape_data = download_per_page_tender_data(driver)
             if status is True and scrape_data:
                 save_data_to_csv(scrape_data)
+                result  = download_tender_doc(driver)
+                logger.info(f"{result}, move to tender doc page..")
             else:
                 logger.error(f"failed to save data...")
                 return False
@@ -364,7 +423,6 @@ if __name__ == "__main__":
         
         # interact_with_form(driver, state="Haryana")
         total_pages = get_total_pages(driver)
-        logger.info(f"total number of pages are : {total_pages}")
         if total_pages > 0 and not None:
                 for page in range(1034,int(total_pages)):
                     logger.info(f"working on page number : {page}")
