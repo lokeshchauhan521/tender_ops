@@ -1,0 +1,96 @@
+2025-05-14 11:47:40,544 INFO:AppLogger [scapper.py:99] ChromeDriver downloaded to: /home/lokesh/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver
+2025-05-14 11:47:45,881 INFO:AppLogger [scapper.py:400] Total number of pages: 5740
+2025-05-14 11:47:45,881 INFO:AppLogger [scapper.py:476] working on page number : 1034
+2025-05-14 11:47:55,412 INFO:AppLogger [scapper.py:271] moving to captcha page
+2025-05-14 11:48:00,752 INFO:AppLogger [scapper.py:278] searching for captcha
+2025-05-14 11:48:03,763 INFO:AppLogger [scapper.py:285] Got image path.....3
+2025-05-14 11:48:18,790 INFO:AppLogger [scapper.py:292] find the path, Now downloading pdf...
+2025-05-14 11:48:23,089 ERROR:AppLogger [scapper.py:306] Getting captch path error: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=133.0.6943.141)
+Stacktrace:
+#0 0x561a78c4e14a <unknown>
+#1 0x561a786ebb80 <unknown>
+#2 0x561a786bfc85 <unknown>
+#3 0x561a7876b68e <unknown>
+#4 0x561a7877438c <unknown>
+#5 0x561a78762e98 <unknown>
+#6 0x561a7872ef08 <unknown>
+#7 0x561a78730071 <unknown>
+#8 0x561a78c17b5b <unknown>
+#9 0x561a78c1bae2 <unknown>
+#10 0x561a78c03967 <unknown>
+#11 0x561a78c1c6d4 <unknown>
+#12 0x561a78be7c7f <unknown>
+#13 0x561a78c3ccd8 <unknown>
+#14 0x561a78c3cea9 <unknown>
+#15 0x561a78c4cfc6 <unknown>
+#16 0x7fb873617609 start_thread
+
+2025-05-14 11:48:23,091 INFO:AppLogger [scapper.py:318] closing final window window.....
+2025-05-14 11:48:23,097 INFO:AppLogger [scapper.py:338] True, move to tender doc page..
+2025-05-14 11:48:23,106 ERROR:AppLogger [scapper.py:348] getting error to download content
+2025-05-14 11:48:27,409 INFO:AppLogger [scapper.py:271] moving to captcha page
+2025-05-14 11:48:32,746 INFO:AppLogger [scapper.py:278] searching for captcha
+2025-05-14 11:48:35,755 INFO:AppLogger [scapper.py:285] Got image path.....3
+2025-05-14 11:48:50,770 INFO:AppLogger [scapper.py:292] find the path, Now downloading pdf...
+2025-05-14 11:48:54,983 ERROR:AppLogger [scapper.py:306] Getting captch path error: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=133.0.6943.141)
+Stacktrace:
+#0 0x561a78c4e14a <unknown>
+#1 0x561a786ebb80 <unknown>
+#2 0x561a786bfc85 <unknown>
+#3 0x561a7876b68e <unknown>
+#4 0x561a7877438c <unknown>
+#5 0x561a78762e98 <unknown>
+#6 0x561a7872ef08 <unknown>
+#7 0x561a78730071 <unknown>
+#8 0x561a78c17b5b <unknown>
+#9 0x561a78c1bae2 <unknown>
+#10 0x561a78c03967 <unknown>
+#11 0x561a78c1c6d4 <unknown>
+#12 0x561a78be7c7f <unknown>
+#13 0x561a78c3ccd8 <unknown>
+#14 0x561a78c3cea9 <unknown>
+#15 0x561a78c4cfc6 <unknown>
+#16 0x7fb873617609 start_thread
+
+2025-05-14 11:48:54,985 INFO:AppLogger [scapper.py:318] closing final window window.....
+2025-05-14 11:48:55,037 INFO:AppLogger [scapper.py:338] True, move to tender doc page..
+2025-05-14 11:48:55,040 ERROR:AppLogger [scapper.py:348] getting error to download content
+2025-05-14 11:48:59,297 INFO:AppLogger [scapper.py:271] moving to captcha page
+2025-05-14 11:49:04,639 INFO:AppLogger [scapper.py:278] searching for captcha
+2025-05-14 11:49:07,651 INFO:AppLogger [scapper.py:285] Got image path.....3
+2025-05-14 11:49:22,679 INFO:AppLogger [scapper.py:292] find the path, Now downloading pdf...
+2025-05-14 11:49:26,928 ERROR:AppLogger [scapper.py:306] Getting captch path error: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=133.0.6943.141)
+Stacktrace:
+#0 0x561a78c4e14a <unknown>
+#1 0x561a786ebb80 <unknown>
+#2 0x561a786bfc85 <unknown>
+#3 0x561a7876b68e <unknown>
+#4 0x561a7877438c <unknown>
+#5 0x561a78762e98 <unknown>
+#6 0x561a7872ef08 <unknown>
+#7 0x561a78730071 <unknown>
+#8 0x561a78c17b5b <unknown>
+#9 0x561a78c1bae2 <unknown>
+#10 0x561a78c03967 <unknown>
+#11 0x561a78c1c6d4 <unknown>
+#12 0x561a78be7c7f <unknown>
+#13 0x561a78c3ccd8 <unknown>
+#14 0x561a78c3cea9 <unknown>
+#15 0x561a78c4cfc6 <unknown>
+#16 0x7fb873617609 start_thread
+
+2025-05-14 11:49:26,937 INFO:AppLogger [scapper.py:318] closing final window window.....
+2025-05-14 11:49:26,960 INFO:AppLogger [scapper.py:338] True, move to tender doc page..
+2025-05-14 11:49:26,971 ERROR:AppLogger [scapper.py:348] getting error to download content
+2025-05-14 11:49:29,564 ERROR:AppLogger [scapper.py:354] error moving to previous page ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2025-05-14 11:49:29,564 ERROR:AppLogger [scapper.py:449] getting errror to download content.
+2025-05-14 11:49:29,564 INFO:AppLogger [scapper.py:476] working on page number : 1035
+2025-05-14 11:49:29,567 ERROR:AppLogger [scapper.py:462] Error during form interaction: HTTPConnectionPool(host='localhost', port=46547): Max retries exceeded with url: /session/c39b8613b601bc0bcfff5d022876b484/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f89ae19e5d0>: Failed to establish a new connection: [Errno 111] Connection refused')) [Line: 519]
+2025-05-14 11:49:29,567 ERROR:AppLogger [scapper.py:482] Script failed: HTTPConnectionPool(host='localhost', port=46547): Max retries exceeded with url: /session/c39b8613b601bc0bcfff5d022876b484/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f89ae19e5d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-05-14 11:49:29,570 INFO:AppLogger [scapper.py:486] Driver closed successfully

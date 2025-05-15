@@ -339,7 +339,7 @@ def fill_captcha(driver=None):
                     logger.info("Form submitted successfully")
                     return True
                 else:
-                    logger.error(f"We are not getting data..............")
+                    logger.error(f"We are not getting data............")
                     return False
             else:
                 return False
