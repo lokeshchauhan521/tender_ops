@@ -13,6 +13,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import undetected_chromedriver as uc
 import pandas as pd
+import multiprocessing
+
 
 
 class AppLogger:
@@ -80,7 +82,7 @@ def create_driver_alternative(download_dir="downloads"):
         options.add_argument('--disable-blink-features=AutomationControlled')
         options.add_argument('--disable-infobars')
         options.add_argument('--disable-notifications')
-        # options.add_argument('--headless=new')
+        options.add_argument('--headless=new')
         #Download to a default folder 
         prefs = {
             "download.default_directory": os.path.abspath(download_dir),
@@ -300,10 +302,10 @@ def download_content(col_num=1, driver=None):
             status, scrape_data = download_per_page_tender_data(driver)
             if status is True and scrape_data:
                 save_data_to_csv(scrape_data)
-                result  = download_tender_doc(driver)
-                logger.info(f"{result}, move to tender doc page..")
-                if result == False:
-                    return False
+                # result  = download_tender_doc(driver)
+                # logger.info(f"{result}, move to tender doc page..")
+                # if result == False:
+                #     return False
 
             else:
                 logger.error(f"failed to save data...")
@@ -414,7 +416,7 @@ def interact_with_form(driver, page , state="Haryana", captcha_api_key=None ):
                             for i in range(1, 11):
                                 per_col_data = download_content(i,driver)
                                 if per_col_data:
-                                    logger.info(f"moving to column {i}")
+                                    logger.info(f"moving to Row: {i}, Page: {page}")
                         except:
                             logger.error(f"getting errror to download content.")
                 except Exception as e:
@@ -440,9 +442,10 @@ if __name__ == "__main__":
         # driver = create_driver()
         
         # interact_with_form(driver, state="Haryana")
-        total_pages = get_total_pages(driver)
+        # total_pages = get_total_pages(driver)
+        total_pages = 4000
         if total_pages > 0 and not None:
-                for page in range(1034,int(total_pages)):
+                for page in range(1,int(total_pages)):
                     logger.info(f"working on page number : {page}")
                     interact_with_form(driver, page , state="Haryana")
 
@@ -454,3 +457,49 @@ if __name__ == "__main__":
         if driver:
             driver.quit()
             logger.info("Driver closed successfully")
+
+
+
+# Working with multiprocessing  
+# def worker(page_queue):
+#     driver = None
+#     try:
+#         driver = create_driver_alternative()
+#         logger = logging.getLogger(f"Worker-{os.getpid()}")
+#         while True:
+#             page = page_queue.get()
+#             if page is None:
+#                 logger.info("No more pages. Exiting.")
+#                 break
+#             try:
+#                 interact_with_form(driver, page, state="Haryana")
+#             except Exception as e:
+#                 logger.error(f"Error processing page {page}: {e}")
+#     finally:
+#         if driver:
+#             driver.quit()
+#             logger.info("Driver closed successfully.")
+
+# if __name__ == "__main__":
+#     total_pages = 4000
+#     num_workers = 10
+
+#     page_queue = multiprocessing.Queue()
+#     for page in range(1040, total_pages):
+#         page_queue.put(page)
+
+#     for _ in range(num_workers):
+#         page_queue.put(None)
+
+#     processes = []
+#     for _ in range(num_workers):
+#         p = multiprocessing.Process(target=worker, args=(page_queue,))
+#         p.start()
+#         processes.append(p)
+
+#     for p in processes:
+#         p.join()
+
+#     logger.info("All pages processed.")
+
+
